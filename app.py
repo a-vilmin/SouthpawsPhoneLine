@@ -1,5 +1,5 @@
 from flask import Flask, request
-from twilio.twiml.voice_response import VoiceResponse, Gather
+from twilio.twiml.voice_response import VoiceResponse, Gather, Sip
 
 app = Flask(__name__)
 
@@ -24,19 +24,22 @@ def gather():
     """Processes results from the <Gather> prompt in /voice"""
     # Start our TwiML response
     resp = VoiceResponse()
+    dial = Dial()
 
     if 'Digits' in request.values:
         # Get which digit the caller chose
         choice = request.values['Digits']
 
-        if choice == '1':
-            resp.say('You selected sales. Good for you!')
-            return str(resp)
-        elif choice == '2':
-            resp.say('You need support. We will help!')
-            return str(resp)
-        elif choice == '3':
-            resp.say('You are the third option')
+        if choice in ['1', '2', '3']:
+            if choice == '1':
+                resp.say('You selected sales. Good for you!')
+            elif choice == '2':
+                resp.say('You need support. We will help!')
+            elif choice == '3':
+                resp.say('You are the third option')
+
+            dial.sip('sip:8304765664@wap.thinq.com?X-account-id=11132&X-account-token=67807f4f358d097b53c595e3fdb5be570bf8477d')
+            response.append(dial)
             return str(resp)
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
