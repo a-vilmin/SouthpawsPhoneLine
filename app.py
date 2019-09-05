@@ -41,7 +41,7 @@ def gather():
                 resp.say('Skeebeeebabeebop hell yeah Dave!')
                 resp.play('http://thinkathon-api-heroku.herokuapp.com/dave', loop=10)
 
-            dial.sip('sip:8304765664@wap.thinq.com?X-account-id=11132&X-account-token=67807f4f358d097b53c595e3fdb5be570bf8477d')
+            dial.sip('sip:3034997111@wap.thinq.com?X-account-id=11132&X-account-token=67807f4f358d097b53c595e3fdb5be570bf8477d')
             resp.append(dial)
             return str(resp)
         else:
