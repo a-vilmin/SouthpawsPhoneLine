@@ -57,7 +57,7 @@ def dwts():
 
 
 @app.route('/davis', methods=['GET'])
-def dwts():
+def davis():
     return send_from_directory('static', 'davis.mp3')
 
 if __name__ == "__main__":
