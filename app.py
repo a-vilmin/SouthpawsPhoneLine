@@ -32,7 +32,8 @@ def gather():
 
         if choice in ['1', '2', '3']:
             if choice == '1':
-                resp.say('You selected sales. Good for you!')
+                resp.say('You are down with the sickness!')
+                resp.play('http://thinkathon-api-heroku.herokuapp.com/dwts', loop=10)
             elif choice == '2':
                 resp.say('You need support. We will help!')
             elif choice == '3':
