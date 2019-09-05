@@ -39,7 +39,7 @@ def gather():
                 resp.say('You are the third option')
 
             dial.sip('sip:8304765664@wap.thinq.com?X-account-id=11132&X-account-token=67807f4f358d097b53c595e3fdb5be570bf8477d')
-            response.append(dial)
+            resp.append(dial)
             return str(resp)
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
