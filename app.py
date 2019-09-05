@@ -35,7 +35,8 @@ def gather():
                 resp.say('You are down with the sickness!')
                 resp.play('http://thinkathon-api-heroku.herokuapp.com/dwts', loop=10)
             elif choice == '2':
-                resp.say('You need support. We will help!')
+                resp.say('What a freak on a leash!')
+                resp.play('http://thinkathon-api-heroku.herokuapp.com/davis', loop=2)
             elif choice == '3':
                 resp.say('You are the third option')
 
@@ -54,6 +55,10 @@ def gather():
 def dwts():
     return send_from_directory('static', 'sickness.mp3')
 
+
+@app.route('/davis', methods=['GET'])
+def dwts():
+    return send_from_directory('static', 'davis.mp3')
 
 if __name__ == "__main__":
     app.run(debug=True)
