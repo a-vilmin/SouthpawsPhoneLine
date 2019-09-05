@@ -35,10 +35,11 @@ def gather():
                 resp.say('You are down with the sickness!')
                 resp.play('http://thinkathon-api-heroku.herokuapp.com/dwts', loop=10)
             elif choice == '2':
-                resp.say('What a freak on a leash!')
+                resp.say('You are a freak on a leash!')
                 resp.play('http://thinkathon-api-heroku.herokuapp.com/davis', loop=2)
             elif choice == '3':
-                resp.say('You are the third option')
+                resp.say('Skeebeeebabeebop hell yea Dave!')
+                resp.play('http://thinkathon-api-heroku.herokuapp.com/davis', loop=10)
 
             dial.sip('sip:8304765664@wap.thinq.com?X-account-id=11132&X-account-token=67807f4f358d097b53c595e3fdb5be570bf8477d')
             resp.append(dial)
@@ -59,6 +60,11 @@ def dwts():
 @app.route('/davis', methods=['GET'])
 def davis():
     return send_from_directory('static', 'davis.mp3')
+
+
+@app.route('/dave', methods=['GET'])
+def dave():
+    return send_from_directory('static', 'dmb.mp3')
 
 if __name__ == "__main__":
     app.run(debug=True)
