@@ -1,5 +1,5 @@
-from flask import Flask, request
-from twilio.twiml.voice_response import VoiceResponse, Gather, Sip, Dial
+from flask import Flask, request, send_from_directory
+from twilio.twiml.voice_response import VoiceResponse, Gather, Sip, Dial, Play
 
 app = Flask(__name__)
 
@@ -47,6 +47,11 @@ def gather():
 
     resp.redirect('/voice')
     return str(resp)
+
+
+@app.route('/dwts', methods=['GET'])
+def dwts():
+    return send_from_directory('static', 'sickness.mp3')
 
 
 if __name__ == "__main__":
