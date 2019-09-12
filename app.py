@@ -1,5 +1,7 @@
 from flask import Flask
-from twilio.twiml.voice_response import VoiceResponse, MessagingResponse
+from twilio.twiml.voice_response import VoiceResponse
+from twilio.twiml.messaging_response import MessagingResponse
+
 
 app = Flask(__name__)
 
